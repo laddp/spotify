@@ -2,7 +2,7 @@
 Some spotify API hacking stuff
 
 
-**get_library** Save your Spotify library off as a JSON file
+**get_library.py** Save your Spotify library off as a JSON file
 
 At some point, I spent a bunch of time adding tracks I liked to a music service.  That music service tanked suddenly
 one day with a "sorry we got sued into oblivion" message, so all that effort was lost.  While I don't think Spotify
@@ -24,3 +24,5 @@ How to use:
 8. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
 
 Repeat steps 3,4,7 as necessary to back up your library
+
+**get_token.py** Service routine to get a reusable refresh token
