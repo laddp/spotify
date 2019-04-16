@@ -26,3 +26,5 @@ How to use:
 Repeat steps 3,4,7 as necessary to back up your library
 
 **get_token.py** Service routine to get a reusable refresh token
+
+Also - the results are packed and hard to read, so use "cat yyyy-mm-dd.json | python -m json.tool | more" to view formatted
