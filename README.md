@@ -2,7 +2,7 @@
 Some spotify API hacking stuff
 
 
-**get_library.py** Save your Spotify library off as a JSON file
+**```get_library.py```**: Save your Spotify library off as a JSON file
 
 At some point, I spent a bunch of time adding tracks I liked to a music service.  That music service tanked suddenly
 one day with a "sorry we got sued into oblivion" message, so all that effort was lost.  While I don't think Spotify
@@ -20,12 +20,18 @@ How to use:
    * Open a browser window where spotify will ask you for permissions
    * Redirect you to localhost/?somehugelongthing
 6. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
-7. Run ```get_library.py``` with that token as command arugment
+7. Run ```get_library.py``` with that token as command arugment (and option output directory)
 8. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
 
 Repeat steps 3,4,7 as necessary to back up your library
 
 Also - the results are packed and hard to read, so use ```cat yyyy-mm-dd.json | python -m json.tool | more``` to view formatted
 
-**get_token.py** Service routine to get a reusable refresh token
+Add this to your crontab to collect your library weekly:
+```
+@weekly SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx /home/pladd/bin/get_library xxxxxxxxx /home/pladd/spotify/
+```
 
+**```get_token.py```**: Service routine to get a reusable refresh token
+
+Module requirements: python3-requests

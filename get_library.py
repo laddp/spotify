@@ -11,10 +11,15 @@ OAUTH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
 client_id = None
 client_secret = None
 
-if len(sys.argv) != 2:
-    raise Exception("Missing argument - refresh_token")
+if len(sys.argv) not in range(2,4):
+    print(len(sys.argv))
+    print("Usage: %s <refresh_token> [output_dir]" % sys.argv[0])
+    raise Exception("Missing argument(s)")
 
 refresh_token = sys.argv[1]
+output_dir = ''
+if len(sys.argv) == 3:
+    output_dir = sys.argv[2] + '/'
 
 if not client_id:
     client_id = os.getenv('SPOTIPY_CLIENT_ID')
@@ -61,5 +66,5 @@ while url:
     print(" - ", count)
 
 filename = str(datetime.date.today()) + '.json'
-with open(filename, 'w') as outfile:
+with open(output_dir + filename, 'w') as outfile:
     json.dump(results, outfile)
