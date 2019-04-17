@@ -15,9 +15,10 @@ def count_by_artist(entry):
     else:
         artists[artist] = 1
 
-
 for entry in library:
     count_by_artist(entry)
+
+print("\nUnique artists: " + str(len(artists)))
 
 artists = sorted(artists.items(), key=lambda tup: tup[1], reverse=True)
 print("\nTop artists:")

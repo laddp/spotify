@@ -38,6 +38,7 @@ Module requirements: python3-requests
 
 **```library_stats.py```**: Compute some statistics about your library
 * Total number of tacks
+* Number of unique artists
+* Most frequent artists
 * Most popular tracks
 * Least popular tracks
-* Most frequent artists
