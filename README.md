@@ -42,6 +42,8 @@ Module requirements: python3-requests
 * Most frequent artists
 * Most popular tracks
 * Least popular tracks
+* Add counts by day, week, month, and year
+* First and last tracks added
 
 
 Sample output (FYI popularity numbers are dynamic based on current trends)
@@ -115,4 +117,18 @@ Least popular:
 1: "Ruined" by The Hello Strangers
 1: "Holy Unholy" by The Hello Strangers
 1: "Time (Edit) [2011 Remastered Version]" by Pink Floyd
+
+Songs added in:
+last day: 7
+last week: 7
+last month: 8
+2019: 10
+2018: 408
+2017: 720
+2016: 2813
+2015: 677
+2014: 207
+
+First add: The Enemy Inside - Live From The Boston Opera House by Dream Theater at 2014-10-11T16:39:11
+Last add: Jonas & Ezekial by Indigo Girls at 2019-04-16T19:35:05
 ```
