@@ -42,3 +42,77 @@ Module requirements: python3-requests
 * Most frequent artists
 * Most popular tracks
 * Least popular tracks
+
+
+Sample output (FYI popularity numbers are dynamic based on current trends)
+```
+Total items: 4835
+
+Unique artists: 980
+
+Top artists:
+Dream Theater: 242
+Pink Floyd: 147
+John Williams: 78
+Jimmy Buffett: 72
+Leonard Bernstein: 60
+Led Zeppelin: 52
+Metallica: 48
+Rush: 46
+Fleetwood Mac: 45
+The Smashing Pumpkins: 42
+Van Halen: 38
+Yes: 38
+Eric Clapton: 36
+U2: 36
+Eagles: 35
+Madonna: 34
+The Hello Strangers: 32
+Rage Against The Machine: 32
+Garbage: 31
+Def Leppard: 29
+
+Most popular:
+89: "Believer" by Imagine Dragons
+88: "Shape of You" by Ed Sheeran
+88: "Thunder" by Imagine Dragons
+86: "Africa" by Toto
+85: "I'm Yours" by Jason Mraz
+85: "Stressed Out" by Twenty One Pilots
+85: "Take on Me" by a-ha
+84: "Nevermind" by Dennis Lloyd
+84: "Back In Black" by AC/DC
+84: "Highway to Hell" by AC/DC
+84: "Hey, Soul Sister" by Train
+84: "Something Just Like This" by The Chainsmokers
+84: "Do I Wanna Know?" by Arctic Monkeys
+84: "Pumped Up Kicks" by Foster The People
+84: "The Scientist" by Coldplay
+84: "Hey, Soul Sister" by Train
+84: "In The End" by Linkin Park
+83: "Heathens" by Twenty One Pilots
+83: "Without Me" by Eminem
+83: "Sweet Home Alabama" by Lynyrd Skynyrd
+
+Least popular:
+2: "Que Sera, Sera" by The Hello Strangers
+2: "High Hopes (Edit) [2011 Remastered Version]" by Pink Floyd
+1: "Rockaway Beach - Remastered" by Ramones
+1: "What You Don't Know (feat. Jim Lauderdale)" by The Hello Strangers
+1: "Ruined" by The Hello Strangers
+1: "Holy Unholy" by The Hello Strangers
+1: "March from "1941"" by Life Guards Band
+1: "Tepepa - Viva la Revolucion - Version 2" by Ennio Morricone
+1: "On the Town : New York, New York" by Leonard Bernstein
+1: "America" by Leonard Bernstein
+1: "Monkey On My Back" by Austin Lounge Lizards
+1: "Last Words" by Austin Lounge Lizards
+1: "Rock Of Ages (2012)" by Def Leppard
+1: "Hysteria 2013 (Re-Recorded Version) - Single" by Def Leppard
+1: "Layla (Piano Exit)" by Derek & The Dominos
+1: "The Same Routine" by The Hello Strangers
+1: "Poor Dear" by The Hello Strangers
+1: "Ruined" by The Hello Strangers
+1: "Holy Unholy" by The Hello Strangers
+1: "Time (Edit) [2011 Remastered Version]" by Pink Floyd
+```
