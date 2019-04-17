@@ -20,7 +20,7 @@ How to use:
    * Open a browser window where spotify will ask you for permissions
    * Redirect you to localhost/?somehugelongthing
 6. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
-7. Run ```get_library.py``` with that token as command arugment (and option output directory)
+7. Run ```get_library.py``` with that token as command arugment (and optional output directory)
 8. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
 
 Repeat steps 3,4,7 as necessary to back up your library
