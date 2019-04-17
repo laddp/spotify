@@ -35,3 +35,9 @@ Add this to your crontab to collect your library weekly:
 **```get_token.py```**: Service routine to get a reusable refresh token
 
 Module requirements: python3-requests
+
+**```library_stats.py```**: Compute some statistics about your library
+* Total number of tacks
+* Most popular tracks
+* Least popular tracks
+* Most frequent artists
