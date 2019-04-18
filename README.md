@@ -6,39 +6,41 @@ Some spotify API hacking stuff
 **To run any of the online apps you need:**
 1. Get a spotify app client ID and secret at https://developer.spotify.com/dashboard/applications
 2. Add "http://localhost/" to the redirect URLs allowed for your app
-3. ```export SPOTIFY_CLIENT_ID=xxxx```
-4. ```export SPOTIPY_CLIENT_SECRET=xxxx```
-5. A one-time run of to get a "refresh token" - see ```get_token.py``` below
+3. `export SPOTIFY_CLIENT_ID=xxxx`
+4. `export SPOTIPY_CLIENT_SECRET=xxxx`
 
-# **```get_library.py```**: Save your Spotify library off as a JSON file
+Most online apps also need a "refresh token":
+1. A one-time run of `get_token.py` gets you a "refresh token" that can be reused indefinitely [(see below)](#get_token.py_service_routine_to_get_a_reusable_refresh_token)
+
+# `get_library.py`: Save your Spotify library off as a JSON file
 
 At some point, I spent a bunch of time adding tracks I liked to a music service.  That music service tanked suddenly
 one day with a "sorry we got sued into oblivion" message, so all that effort was lost.  While I don't think Spotify
 is going anywhere, that still bugged me, so I resolved to save my list of liked songs somewhere safe.  This is the
 script I wrote to do that.
 
-1. Run ```get_library.py``` with refresh token as command arugment (and optional output directory)
+1. Run `get_library.py` with refresh token as command arugment (and optional output directory)
 2. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
 
-Rresults are packed and hard to read, so use ```cat yyyy-mm-dd.json | python -m json.tool | more``` to view formatted
+Rresults are packed and hard to read, so use `cat yyyy-mm-dd.json | python -m json.tool | more` to view formatted
 
 Add this to your crontab to collect your library weekly:
 ```
 @weekly SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx /home/pladd/bin/get_library xxxxxxxxx /home/pladd/spotify/
 ```
 
-# **```get_token.py```**: Service routine to get a reusable refresh token
+# `get_token.py`: Service routine to get a reusable refresh token
 
 The online apps require a "refresh token" to give permission to query your data.  You'll need to run this once to
 grant proper permissions.
 
-1. Run ```get_token.py```
+1. Run `get_token.py`
    It will:
    * Open a browser window where spotify will ask you for permissions
    * Redirect you to localhost/?somehugelongthing
 2. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
 
-# ```most_popular_for.py```: Show most popular songs for an artist
+# `most_popular_for.py`: Show most popular songs for an artist
 Spotify web UI only shows the 5 most popular now, and their API only returns 10 (and isn't configurable...)
 
 Usage:
@@ -86,7 +88,7 @@ Fetching track data
 [66]: "Where The Streets Have No Name - Remastered" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/4qgZs0RNjdzKAS22lP0QjY
 ```
 
-# ```songs_in_library_by.py```: Search library for songs by an artist
+# `songs_in_library_by.py`: Search library for songs by an artist
 (Offline - no refresh token required)
 
 Usage:
@@ -126,7 +128,7 @@ Sample output:
 "Famous" on "Best Of" (2)
 ```
 
-# **```library_stats.py```**: Compute some statistics about your library
+# `library_stats.py`: Compute some statistics about your library
 (Offline - no refresh token required)
 
 Compute some nerdy stats on your library:
