@@ -2,41 +2,85 @@
 Some spotify API hacking stuff
 
 
-**```get_library.py```**: Save your Spotify library off as a JSON file
+# Setup
+**To run any of the online apps you need:**
+1. Get a spotify app client ID and secret at https://developer.spotify.com/dashboard/applications
+2. Add "http://localhost/" to the redirect URLs allowed for your app
+3. ```export SPOTIFY_CLIENT_ID=xxxx```
+4. ```export SPOTIPY_CLIENT_SECRET=xxxx```
+5. A one-time run of to get a "refresh token" - see ```get_token.py``` below
+
+# **```get_library.py```**: Save your Spotify library off as a JSON file
 
 At some point, I spent a bunch of time adding tracks I liked to a music service.  That music service tanked suddenly
 one day with a "sorry we got sued into oblivion" message, so all that effort was lost.  While I don't think Spotify
 is going anywhere, that still bugged me, so I resolved to save my list of liked songs somewhere safe.  This is the
 script I wrote to do that.
 
-How to use:
+1. Run ```get_library.py``` with refresh token as command arugment (and optional output directory)
+2. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
 
-1. Get a spotify app client ID and secret at https://developer.spotify.com/dashboard/applications
-2. Add "http://localhost/" to the redirect URLs allowed for your app
-3. ```export SPOTIFY_CLIENT_ID=xxxx```
-4. ```export SPOTIPY_CLIENT_SECRET=xxxx```
-5. One time: run ```get_token.py```
-   It will:
-   * Open a browser window where spotify will ask you for permissions
-   * Redirect you to localhost/?somehugelongthing
-6. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
-7. Run ```get_library.py``` with that token as command arugment (and optional output directory)
-8. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
-
-Repeat steps 3,4,7 as necessary to back up your library
-
-Also - the results are packed and hard to read, so use ```cat yyyy-mm-dd.json | python -m json.tool | more``` to view formatted
+Rresults are packed and hard to read, so use ```cat yyyy-mm-dd.json | python -m json.tool | more``` to view formatted
 
 Add this to your crontab to collect your library weekly:
 ```
 @weekly SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx /home/pladd/bin/get_library xxxxxxxxx /home/pladd/spotify/
 ```
 
-**```get_token.py```**: Service routine to get a reusable refresh token
+# **```get_token.py```**: Service routine to get a reusable refresh token
 
-Module requirements: python3-requests
+The online apps require a "refresh token" to give permission to query your data.  You'll need to run this once to
+grant proper permissions.
 
-**```library_stats.py```**: Compute some statistics about your library
+1. Run ```get_token.py```
+   It will:
+   * Open a browser window where spotify will ask you for permissions
+   * Redirect you to localhost/?somehugelongthing
+2. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
+
+# ```songs_in_library_by.py```: Search library for songs by an artist
+(Offline - no refresh token required)
+
+Usage:
+```
+songs_in_library_by.py [-h] [-r]
+                              artist library_file
+                              [{name,popularity,release_date,duration_ms}]
+
+positional arguments:
+  artist                The artist to search for
+  library_file          The JSON library file to search
+  {name,popularity,release_date,duration_ms}
+                        Field to sort results on (default:name)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -r, --reverse         Reverse sort order
+```
+
+'popularity' is a good sort field
+
+Sample output:
+```
+./songs_in_library_by.py "Puddle Of Mudd" 2019-04-17.json popularity -r
+"Blurry" on "Come Clean" (67)
+"Blurry" on "Come Clean" (67)
+"She Hates Me" on "Come Clean" (66)
+"She Hates Me" on "Come Clean" (66)
+"Psycho" on "Famous" (60)
+"Control" on "Come Clean" (60)
+"Control" on "Come Clean" (60)
+"Famous" on "Famous" (54)
+"She Hates Me" on "Best Of" (53)
+"Drift And Die" on "Come Clean" (53)
+"Psycho" on "Best Of" (50)
+"Away From Me" on "Best Of" (14)
+"Famous" on "Best Of" (2)
+```
+
+# **```library_stats.py```**: Compute some statistics about your library
+(Offline - no refresh token required)
+
 * Total number of tacks
 * Number of unique artists
 * Most frequent artists
@@ -44,7 +88,6 @@ Module requirements: python3-requests
 * Least popular tracks
 * Add counts by day, week, month, and year
 * First and last tracks added
-
 
 Sample output (FYI popularity numbers are dynamic based on current trends)
 ```

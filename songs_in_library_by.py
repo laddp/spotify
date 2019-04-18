@@ -1,23 +1,29 @@
 #!/usr/bin/python3
 import json
 import sys
+import argparse
 
-if len(sys.argv) not in range(3, 5):
-    print("Usage: %s <artist> <library_file> [sort field]" % sys.argv[0])
-    exit(1)
+parser = argparse.ArgumentParser()
+parser.add_argument("artist",
+                    help="The artist to search for")
+parser.add_argument("library_file",
+                    help="The JSON library file to search")
+parser.add_argument("sort_field",
+                    help="Field to sort results on (default:name)", nargs="?", default="name",
+                    choices=['name','popularity','release_date','duration_ms'])
+parser.add_argument("-r", "--reverse",
+                    help="Reverse sort order", action="store_true")
+args = parser.parse_args()
 
-libfile = open(sys.argv[2])
+libfile = open(args.library_file)
 library = json.load(libfile)
 
 entries = filter(lambda entry: entry['track']
-                 ['artists'][0]['name'] == sys.argv[1], library)
+                 ['artists'][0]['name'] == args.artist, library)
 
-sort_field = "name"
-if len(sys.argv) == 4:
-    sort_field = sys.argv[3]
-
-entries = sorted(entries, key=lambda entry: entry['track'][sort_field])
-
+entries = sorted(
+    entries, key=lambda entry: entry['track'][args.sort_field], reverse=args.reverse)
 
 for entry in entries:
-    print(str(entry['track']['popularity']) + ': "' + entry['track']['name'])
+    print('"' + entry['track']['name'] + '" on "' + entry['track']
+          ['album']['name'] + '" (' + str(entry['track']['popularity']) + ')')
