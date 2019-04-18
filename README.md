@@ -38,6 +38,54 @@ grant proper permissions.
    * Redirect you to localhost/?somehugelongthing
 2. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
 
+# ```most_popular_for.py```: Show most popular songs for an artist
+Spotify web UI only shows the 5 most popular now, and their API only returns 10 (and isn't configurable...)
+
+Usage:
+```
+most_popular_for.py [-h] [-c COUNT] [-v] artist
+
+positional arguments:
+  artist                The artist to search for
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c COUNT, --count COUNT
+                        Number to return (default:25)
+  -v, --verbose         Print progress
+```
+
+Sample output:
+```
+./most_popular_for.py "U2" --count 5
+Most popular tracks for "U2" (popularity 81) from 695 tracks on 68 albums
+[79]: "With Or Without You - Remastered" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/6ADSaE87h8Y3lccZlBJdXH
+[77]: "One" on "Achtung Baby (Deluxe Edition)" - https://open.spotify.com/track/3G69vJMWsX6ZohTykad2AU
+[76]: "I Still Haven't Found What I'm Looking For" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/6wpGqhRvJGNNXwWlPmkMyO
+[71]: "Sunday Bloody Sunday - Remastered 2008" on "War (Remastered)" - https://open.spotify.com/track/6C4LXC9UFH1IKiHYOp0BiJ
+[66]: "Where The Streets Have No Name - Remastered" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/4qgZs0RNjdzKAS22lP0QjY
+```
+
+```
+./most_popular_for.py "U2" --count 5 -v
+Most popular tracks for "U2" (popularity 81)
+
+Fetching albums
+#################################################################### - 68
+
+Fetching tracks
+#.................#...........#.....................#...........#............#........#..........#...........#............#...........#...........#............#..........#..........................#............#.................#...........#............................#.................................................#..........................#..........#..........#..........#..........#......................#............................#...........#...........#.........................#...........#....#....#...#.#.#.#...#.#.#.#.#..#.#.#..#.#.#.....#...#.#...#...#...#.#..#....#.....#....#....#..................#...........................#.#...............................#................#..............................#...............#........#........ - 695
+
+Fetching track data
+50...50...50...50...50...50...50...50...50...50...50...50...50...45...Done
+
+[79]: "With Or Without You - Remastered" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/6ADSaE87h8Y3lccZlBJdXH
+[77]: "One" on "Achtung Baby (Deluxe Edition)" - https://open.spotify.com/track/3G69vJMWsX6ZohTykad2AU
+[76]: "I Still Haven't Found What I'm Looking For" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/6wpGqhRvJGNNXwWlPmkMyO
+[71]: "Sunday Bloody Sunday - Remastered 2008" on "War (Remastered)" - https://open.spotify.com/track/6C4LXC9UFH1IKiHYOp0BiJ
+[66]: "Where The Streets Have No Name - Remastered" on "The Joshua Tree (Super Deluxe)" - https://open.spotify.com/track/4qgZs0RNjdzKAS22lP0QjY
+```
+
 # ```songs_in_library_by.py```: Search library for songs by an artist
 (Offline - no refresh token required)
 
@@ -81,6 +129,7 @@ Sample output:
 # **```library_stats.py```**: Compute some statistics about your library
 (Offline - no refresh token required)
 
+Compute some nerdy stats on your library:
 * Total number of tacks
 * Number of unique artists
 * Most frequent artists
