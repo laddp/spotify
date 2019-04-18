@@ -10,7 +10,7 @@ Some spotify API hacking stuff
 4. `export SPOTIPY_CLIENT_SECRET=xxxx`
 
 Most online apps also need a "refresh token":
-1. A one-time run of `get_token.py` gets you a "refresh token" that can be reused indefinitely [(see below)](#get_token.py_service_routine_to_get_a_reusable_refresh_token)
+1. A one-time run of `get_token.py` gets you a "refresh token" that can be reused indefinitely [(see below)](#get_tokenpy-service-routine-to-get-a-reusable-refresh-token)
 
 # `get_library.py`: Save your Spotify library off as a JSON file
 
