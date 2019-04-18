@@ -1,5 +1,5 @@
 # spotify
-Some spotify API hacking stuff
+Some [Spotify API](https://developer.spotify.com/documentation/web-api/reference/) hacking stuff
 
 
 # Setup
@@ -41,7 +41,7 @@ grant proper permissions.
 2. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
 
 # `most_popular_for.py`: Show most popular songs for an artist
-Spotify web UI only shows the 5 most popular now, and their API only returns 10 (and isn't configurable...)
+Spotify web UI only shows the 5 most popular now, and [their API](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/) only returns 10 (and isn't configurable...)
 
 Usage:
 ```
