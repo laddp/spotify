@@ -19,10 +19,35 @@ one day with a "sorry we got sued into oblivion" message, so all that effort was
 is going anywhere, that still bugged me, so I resolved to save my list of liked songs somewhere safe.  This is the
 script I wrote to do that.
 
-1. Run `get_library.py` with refresh token as command arugment (and optional output directory)
-2. The json contents of your Spotify library will be saved as yyyy-mm-dd.json
+Stores the contents of your Spotify library will be saved as JSON file `yyyy-mm-dd.json`
 
-Rresults are packed and hard to read, so use `cat yyyy-mm-dd.json | python -m json.tool | more` to view formatted
+Usage:
+```
+get_library.py [-h] [-q] refresh_token [output_dir]
+
+positional arguments:
+  refresh_token  Your personal Spotify refresh token
+  output_dir     Output directory
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -q, --quiet    No output
+```
+
+Sample output:
+```
+./get_library.py $SPOTIFY_TOKEN
+...50...100...150...200...250...300...350...400...450...500...550...600...650...700...750...800
+...850...900...950...1000...1050...1100...1150...1200...1250...1300...1350...1400...1450...1500
+...1550...1600...1650...1700...1750...1800...1850...1900...1950...2000...2050...2100...2150...2200
+...2250...2300...2350...2400...2450...2500...2550...2600...2650...2700...2750...2800...2850...2900
+...2950...3000...3050...3100...3150...3200...3250...3300...3350...3400...3450...3500...3550...3600
+...3650...3700...3750...3800...3850...3900...3950...4000...4050...4100...4150...4200...4250...4300
+...4350...4400...4450...4500...4550...4600...4650...4700...4750...4800...4850...4900...4950...4983
+Retrieved 4983 tracks, writing to ./2019-04-19.json
+```
+
+Results are packed and hard to read, so use `cat yyyy-mm-dd.json | python -m json.tool | more` to view them in human readable form
 
 Add this to your crontab to collect your library weekly:
 ```

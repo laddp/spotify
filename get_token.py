@@ -1,26 +1,18 @@
 #!/usr/bin/python3
 import os
-import base64
 import requests
 import six.moves.urllib.parse as urllibparse
 import json
-
-client_id = None
-client_secret = None
+import spotutil
 
 OAUTH_AUTHORIZE_URL = 'https://accounts.spotify.com/authorize'
 OAUTH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
 redirect_url = 'http://localhost/'
 protected_url = 'https://api.spotify.com/v1/'
 
-if not client_id:
-    client_id = os.getenv('SPOTIPY_CLIENT_ID')
-if not client_id:
-    raise Exception('No client id')
-if not client_secret:
-    client_secret = os.getenv('SPOTIPY_CLIENT_SECRET')
-if not client_secret:
-    raise Exception('No client secret')
+spotutil.get_client_id_and_secret()
+client_id = spotutil.client_id
+client_secret = spotutil.client_secret
 
 
 def request_auth_code():
@@ -49,10 +41,7 @@ def request_auth_code():
 
 
 def get_tokens_from_authcode(code):
-    client_data = client_id + ':' + client_secret
-    client_data_encoded = base64.b64encode(client_data.encode('ascii'))
-    token_request_header = {
-        'Authorization': 'Basic %s' % client_data_encoded.decode('ascii')}
+    token_request_header = spotutil.get_auth_header_for_client()
     token_request_body = {
         'grant_type': 'authorization_code',
         'code': code,

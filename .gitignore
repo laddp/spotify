@@ -1,3 +1,4 @@
 *.json
 LIBRARY_CLIENT.sh
-
+__pycache__/
+*.py[cod]
