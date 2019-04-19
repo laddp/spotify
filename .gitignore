@@ -1,4 +1,8 @@
+# My artifacts
 *.json
+*.gz
 LIBRARY_CLIENT.sh
+
+# Python artifacts
 __pycache__/
 *.py[cod]

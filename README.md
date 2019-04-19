@@ -1,27 +1,32 @@
 # spotify
+
 Some [Spotify API](https://developer.spotify.com/documentation/web-api/reference/) hacking stuff
 
-
 # Setup
+
 **To run any of the online apps you need:**
-1. Get a spotify app client ID and secret at https://developer.spotify.com/dashboard/applications
-2. Add "http://localhost/" to the redirect URLs allowed for your app
+
+1. Get a spotify app client ID and secret at <https://developer.spotify.com/dashboard/applications>
+2. Add "<http://localhost/>" to the redirect URLs allowed for your app
 3. `export SPOTIFY_CLIENT_ID=xxxx`
 4. `export SPOTIPY_CLIENT_SECRET=xxxx`
 
 Most online apps also need a "refresh token":
+
 1. A one-time run of `get_token.py` gets you a "refresh token" that can be reused indefinitely [(see below)](#get_tokenpy-service-routine-to-get-a-reusable-refresh-token)
 
 # `get_library.py`: Save your Spotify library off as a JSON file
 
-At some point, I spent a bunch of time adding tracks I liked to a music service.  That music service tanked suddenly
-one day with a "sorry we got sued into oblivion" message, so all that effort was lost.  While I don't think Spotify
-is going anywhere, that still bugged me, so I resolved to save my list of liked songs somewhere safe.  This is the
-script I wrote to do that.
+At some point, I spent a bunch of time adding tracks I liked to a music service.
+That music service tanked suddenly one day with a "sorry we got sued into oblivion"
+message, so all that effort was lost. While I don't think Spotify is going anywhere,
+that still bugged me, so I resolved to save my list of liked songs somewhere safe.
+This is the script I wrote to do that.
 
 Stores the contents of your Spotify library will be saved as JSON file `yyyy-mm-dd.json`
 
 Usage:
+
 ```
 get_library.py [-h] [-q] refresh_token [output_dir]
 
@@ -35,40 +40,46 @@ optional arguments:
 ```
 
 Sample output:
+
 ```
 ./get_library.py $SPOTIFY_TOKEN
-...50...100...150...200...250...300...350...400...450...500...550...600...650...700...750...800
-...850...900...950...1000...1050...1100...1150...1200...1250...1300...1350...1400...1450...1500
-...1550...1600...1650...1700...1750...1800...1850...1900...1950...2000...2050...2100...2150...2200
-...2250...2300...2350...2400...2450...2500...2550...2600...2650...2700...2750...2800...2850...2900
-...2950...3000...3050...3100...3150...3200...3250...3300...3350...3400...3450...3500...3550...3600
-...3650...3700...3750...3800...3850...3900...3950...4000...4050...4100...4150...4200...4250...4300
-...4350...4400...4450...4500...4550...4600...4650...4700...4750...4800...4850...4900...4950...4983
+...50...100...150...200...250...300...350...400...450...500...550...600...650
+...700...750...800...850...900...950...1000...1050...1100...1150...1200...1250
+...1300...1350...1400...1450...1500...1550...1600...1650...1700...1750...1800
+...1850...1900...1950...2000...2050...2100...2150...2200...2250...2300...2350
+...2400...2450...2500...2550...2600...2650...2700...2750...2800...2850...2900
+...2950...3000...3050...3100...3150...3200...3250...3300...3350...3400...3450
+...3500...3550...3600...3650...3700...3750...3800...3850...3900...3950...4000
+...4050...4100...4150...4200...4250...4300...4350...4400...4450...4500...4550
+...4600...4650...4700...4750...4800...4850...4900...4950...4983
 Retrieved 4983 tracks, writing to ./2019-04-19.json
 ```
 
 Results are packed and hard to read, so use `cat yyyy-mm-dd.json | python -m json.tool | more` to view them in human readable form
 
 Add this to your crontab to collect your library weekly:
+
 ```
 @weekly SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx /home/pladd/bin/get_library xxxxxxxxx /home/pladd/spotify/
 ```
 
 # `get_token.py`: Service routine to get a reusable refresh token
 
-The online apps require a "refresh token" to give permission to query your data.  You'll need to run this once to
-grant proper permissions.
+The online apps require a "refresh token" to give permission to query your data. You'll need to run this once to grant proper permissions.
 
-1. Run `get_token.py`
-   It will:
-   * Open a browser window where spotify will ask you for permissions
-   * Redirect you to localhost/?somehugelongthing
+1. Run `get_token.py` It will:
+
+  - Open a browser window where spotify will ask you for permissions
+  - Redirect you to localhost/?somehugelongthing
+
 2. Paste that redirect URL back into get_token.py, which will spit out a "refresh token"
 
 # `most_popular_for.py`: Show most popular songs for an artist
+
 Spotify web UI only shows the 5 most popular now, and [their API](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/) only returns 10 (and isn't configurable...)
 
 Usage:
+
 ```
 most_popular_for.py [-h] [-c COUNT] [-v] artist
 
@@ -83,6 +94,7 @@ optional arguments:
 ```
 
 Sample output:
+
 ```
 ./most_popular_for.py "U2" --count 5
 Most popular tracks for "U2" (popularity 81) from 695 tracks on 68 albums
@@ -101,7 +113,16 @@ Fetching albums
 #################################################################### - 68
 
 Fetching tracks
-#.................#...........#.....................#...........#............#........#..........#...........#............#...........#...........#............#..........#..........................#............#.................#...........#............................#.................................................#..........................#..........#..........#..........#..........#......................#............................#...........#...........#.........................#...........#....#....#...#.#.#.#...#.#.#.#.#..#.#.#..#.#.#.....#...#.#...#...#...#.#..#....#.....#....#....#..................#...........................#.#...............................#................#..............................#...............#........#........ - 695
+#.................#...........#.....................#...........#............#.
+.......#..........#...........#............#...........#...........#...........
+.#..........#..........................#............#.................#........
+...#............................#..............................................
+...#..........................#..........#..........#..........#..........#....
+..................#............................#...........#...........#.......
+..................#...........#....#....#...#.#.#.#...#.#.#.#.#..#.#.#..#.#.#..
+...#...#.#...#...#...#.#..#....#.....#....#....#..................#............
+...............#.#...............................#................#............
+..................#...............#........#........ - 695
 
 Fetching track data
 50...50...50...50...50...50...50...50...50...50...50...50...50...45...Done
@@ -114,9 +135,11 @@ Fetching track data
 ```
 
 # `songs_in_library_by.py`: Search library for songs by an artist
+
 (Offline - no refresh token required)
 
 Usage:
+
 ```
 songs_in_library_by.py [-h] [-r]
                               artist library_file
@@ -136,6 +159,7 @@ optional arguments:
 'popularity' is a good sort field
 
 Sample output:
+
 ```
 ./songs_in_library_by.py "Puddle Of Mudd" 2019-04-17.json popularity -r
 "Blurry" on "Come Clean" (67)
@@ -154,18 +178,21 @@ Sample output:
 ```
 
 # `library_stats.py`: Compute some statistics about your library
+
 (Offline - no refresh token required)
 
 Compute some nerdy stats on your library:
-* Total number of tacks
-* Number of unique artists
-* Most frequent artists
-* Most popular tracks
-* Least popular tracks
-* Add counts by day, week, month, and year
-* First and last tracks added
+
+- Total number of tacks
+- Number of unique artists
+- Most frequent artists
+- Most popular tracks
+- Least popular tracks
+- Add counts by day, week, month, and year
+- First and last tracks added
 
 Sample output (FYI popularity numbers are dynamic based on current trends)
+
 ```
 Total items: 4835
 
