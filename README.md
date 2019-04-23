@@ -449,90 +449,90 @@ lounge: 145
 vocal jazz: 145
 
 Most popular artists in your library:
-94: Queen
-93: Eminem
-92: Ed Sheeran
-91: Lil Wayne
-91: Imagine Dragons
-91: Bruno Mars
-90: Rihanna
-89: Ty Dolla $ign
-89: Beyoncé
-89: The Chainsmokers
-89: Taylor Swift
-89: Maroon 5
-88: Coldplay
-88: Panic! At The Disco
-88: Twenty One Pilots
-88: The Beatles
-87: Wiz Khalifa
-87: Logic
-87: John Mayer
-86: Red Hot Chili Peppers
+94: Queen - https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d
+93: Eminem - https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR
+92: Ed Sheeran - https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V
+91: Lil Wayne - https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865
+91: Imagine Dragons - https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q
+90: Rihanna - https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H
+90: Bruno Mars - https://open.spotify.com/artist/0du5cEVh5yTK9QJze8zA0C
+89: Ty Dolla $ign - https://open.spotify.com/artist/7c0XG5cIJTrrAgEC3ULPiq
+89: Beyoncé - https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m
+89: The Chainsmokers - https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp
+89: Taylor Swift - https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02
+89: Maroon 5 - https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP
+88: Coldplay - https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU
+88: Panic! At The Disco - https://open.spotify.com/artist/20JZFwl6HVl6yg8a4H3ZqK
+88: Twenty One Pilots - https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx
+88: The Beatles - https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+87: Wiz Khalifa - https://open.spotify.com/artist/137W8MRPWKqSmrBGDBFSop
+87: Logic - https://open.spotify.com/artist/4xRYI6VqpkE3UwrDrAZL8L
+87: John Mayer - https://open.spotify.com/artist/0hEurMDQu99nJRq8pTxO14
+86: Red Hot Chili Peppers - https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5
 
 Least popular artists in your library:
-7: Zero Mostel & Ronald Holgate
-7: Peter Thom
-6: Zero Mostel & Brian Davies
-6: Zero Mostel, Brian Davies & Preshy Marker
-6: Preshy Marker
-6: Kelly Markgraf
-5: Cowboy '86
-5: David Burns & Brian Davies
-5: Ronald Holgate & Zero Mostel
-4: Zero Mostel & Jack Gilford
-4: Joseph C. Garland
-4: Julia Bullock
-4: Sweet Colleens
-3: Army Field Band
-2: The Guild of Ancient Fifes
-1: Ben Markley Big Band
-1: Household Division Corps Of Drums & Fifes
-1: Matt Wessel
-0: Life Guards Band
-0: Blane, R.
+7: Zero Mostel & Ronald Holgate - https://open.spotify.com/artist/3RgvYOyVEu9GvHCvt8Bw8j
+7: Peter Thom - https://open.spotify.com/artist/3QafxkNr5QQ29cHRhgVsBO
+6: Zero Mostel & Brian Davies - https://open.spotify.com/artist/5kAA1r6EEc10lyt3P6PV9A
+6: Zero Mostel, Brian Davies & Preshy Marker - https://open.spotify.com/artist/0twdbaZ7R6aJJTX2lqQZfQ
+6: Preshy Marker - https://open.spotify.com/artist/5su8grLtxVbtluwIpYxE1W
+6: Kelly Markgraf - https://open.spotify.com/artist/1nnoqiJk68QpV6UkvW567W
+5: Cowboy '86 - https://open.spotify.com/artist/12F42suF1DlpxJTHPQ88Mc
+5: David Burns & Brian Davies - https://open.spotify.com/artist/21ogGr3Hswd9DGqUksGpAf
+5: Ronald Holgate & Zero Mostel - https://open.spotify.com/artist/4BwaUNWaZYgWFFt62y44O2
+4: Zero Mostel & Jack Gilford - https://open.spotify.com/artist/1TnQrKaNz9N4rpVzWnHZlc
+4: Joseph C. Garland - https://open.spotify.com/artist/6xqfWJppseREFAdTDJZ3Tl
+4: Julia Bullock - https://open.spotify.com/artist/4hpewChG7FAL2dYXLZUO44
+4: Sweet Colleens - https://open.spotify.com/artist/0CszLVIpyMJywvqyM2vXmM
+3: Army Field Band - https://open.spotify.com/artist/6DGnfD9vev4wMu5RLRFiU1
+2: Ben Markley Big Band - https://open.spotify.com/artist/24k5kQfbeHbcM42vrLcNM2
+2: The Guild of Ancient Fifes - https://open.spotify.com/artist/1pWbvZ52zDUckJyfkRwzof
+1: Household Division Corps Of Drums & Fifes - https://open.spotify.com/artist/0C9id2SstcR26HDdCVv8hN
+1: Matt Wessel - https://open.spotify.com/artist/0Aw5hwpBV9ciBk4LPmpyEa
+0: Life Guards Band - https://open.spotify.com/artist/7cGKHORVXtcziLIHUDQQRu
+0: Blane, R. - https://open.spotify.com/artist/22yB8AlZgND4xXaJzjyBVg
 
 Most followed artists in your library:
-42,928,463: Ed Sheeran
-31,181,645: Rihanna
-26,048,365: Eminem
-20,684,395: Bruno Mars
-19,245,993: Taylor Swift
-19,111,406: Coldplay
-18,270,571: Beyoncé
-18,082,142: Imagine Dragons
-17,547,891: Maroon 5
-15,179,889: Adele
-15,115,390: Queen
-13,410,941: Demi Lovato
-12,559,174: Twenty One Pilots
-12,124,348: Linkin Park
-11,812,462: The Chainsmokers
-11,699,548: Guns N' Roses
-11,658,240: The Beatles
-10,837,087: AC/DC
-10,224,748: Red Hot Chili Peppers
-10,196,951: Metallica
+42,948,667: Ed Sheeran - https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V
+31,190,930: Rihanna - https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H
+26,060,720: Eminem - https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR
+20,689,526: Bruno Mars - https://open.spotify.com/artist/0du5cEVh5yTK9QJze8zA0C
+19,257,177: Taylor Swift - https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02
+19,120,277: Coldplay - https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU
+18,284,766: Beyoncé - https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m
+18,093,252: Imagine Dragons - https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q
+17,556,383: Maroon 5 - https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP
+15,188,052: Adele - https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY
+15,128,167: Queen - https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d
+13,416,117: Demi Lovato - https://open.spotify.com/artist/6S2OmqARrzebs0tKUEyXyp
+12,564,556: Twenty One Pilots - https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx
+12,128,313: Linkin Park - https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz
+11,818,568: The Chainsmokers - https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp
+11,704,864: Guns N' Roses - https://open.spotify.com/artist/3qm84nBOXUEQ2vnTfUTTFC
+11,662,585: The Beatles - https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+10,841,439: AC/DC - https://open.spotify.com/artist/711MCceyCBcFnzjGY4Q7Un
+10,228,216: Red Hot Chili Peppers - https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5
+10,201,056: Metallica - https://open.spotify.com/artist/2ye2Wgw4gimLv2eAKyk1NB
 
 Least followed artists in your library:
-6: David Burns & Brian Davies
-6: Joanne Miya
-5: Lorin Levee
-5: The Tommy Rome Orchestra
-5: Cassie Simone
-4: Joseph C. Garland
-3: Life Guards Band
-3: Louise Marie Cornillez
-3: Peter Thom
-2: Household Division Corps Of Drums & Fifes
-2: Justin Keyes
-1: Eliot Feld
-1: Kevin Vortmann
-1: Kelly Markgraf
-0: John Gower
-0: Blane, R.
-0: Zachary Ford
-0: Chris Meissner
-0: Louis Pardo
-0: David Michael Laffey
+6: David Burns & Brian Davies - https://open.spotify.com/artist/21ogGr3Hswd9DGqUksGpAf
+6: Joanne Miya - https://open.spotify.com/artist/4hqBCPgHlmR9l7pZQmO8Cn
+5: Lorin Levee - https://open.spotify.com/artist/601TQkqiAnt3LXTkiR5DnL
+5: The Tommy Rome Orchestra - https://open.spotify.com/artist/6wYENXHgHbrqgSaa2qvTDK
+5: Cassie Simone - https://open.spotify.com/artist/6FrepzlCnu2TFnlANfjLzh
+4: Joseph C. Garland - https://open.spotify.com/artist/6xqfWJppseREFAdTDJZ3Tl
+3: Life Guards Band - https://open.spotify.com/artist/7cGKHORVXtcziLIHUDQQRu
+3: Louise Marie Cornillez - https://open.spotify.com/artist/4Nd2RJK1wlmkuY4AA36a44
+3: Peter Thom - https://open.spotify.com/artist/3QafxkNr5QQ29cHRhgVsBO
+2: Household Division Corps Of Drums & Fifes - https://open.spotify.com/artist/0C9id2SstcR26HDdCVv8hN
+2: Justin Keyes - https://open.spotify.com/artist/6CEqoRmBXE2VLEhv7aWAWv
+1: Eliot Feld - https://open.spotify.com/artist/5IMjTY2XnY6zVAcAyRNp2m
+1: Kevin Vortmann - https://open.spotify.com/artist/0caATCnsAyN9vajLJHwDWp
+1: Kelly Markgraf - https://open.spotify.com/artist/1nnoqiJk68QpV6UkvW567W
+0: John Gower - https://open.spotify.com/artist/125IS9ax8Svaf2rYC1zKoB
+0: Blane, R. - https://open.spotify.com/artist/22yB8AlZgND4xXaJzjyBVg
+0: Zachary Ford - https://open.spotify.com/artist/4unnkTfw2XrX90l7Cyox14
+0: Chris Meissner - https://open.spotify.com/artist/4p2DeTKBXwaNE6A91ahBYA
+0: Louis Pardo - https://open.spotify.com/artist/3KfWtx7BKyfaiGQPqDdqAr
+0: David Michael Laffey - https://open.spotify.com/artist/5slswoBe6miyP5XNhpWDv9
 ```
