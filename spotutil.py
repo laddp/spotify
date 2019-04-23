@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import os
 import base64
+import time
 import requests
 
 
@@ -17,7 +18,8 @@ def get_client_id_and_secret():
     if not client_secret:
         client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
     if not client_secret:
-        raise Exception('No client secret - did you export SPOTIFY_CLIENT_SECRET ?')
+        raise Exception(
+            'No client secret - did you export SPOTIFY_CLIENT_SECRET ?')
 
 
 def client_auth_header():
@@ -60,3 +62,16 @@ def get_auth_header_from_refresh_token(refresh_token):
     return {
         'Authorization': "Bearer " + response.json()['access_token']
     }
+
+
+def fetch_spotify_url_with_retry(url, auth_header):
+    while True:
+        response = requests.get(url, headers=auth_header)
+        if not response.ok:
+            if response.status_code == 429:  # rate limit
+                time.sleep(int(response.headers['Retry-After']))
+                continue
+            else:
+                response.raise_for_status()
+        else:
+            return response.json()

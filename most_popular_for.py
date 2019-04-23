@@ -2,7 +2,6 @@
 import json
 import os
 import sys
-import requests
 import argparse
 import spotutil
 
@@ -28,10 +27,8 @@ auth_header = spotutil.get_auth_header_for_client()
 #############################
 artist_url = 'https://api.spotify.com/v1/search?q=' + \
     args.artist + '&type=artist&limit=2'
-artist = requests.get(artist_url, headers=auth_header)
-artist.raise_for_status()
+artist = spotutil.fetch_spotify_url_with_retry(artist_url, auth_header)
 
-artist = artist.json()
 if artist['artists']['total'] == 0:
     print("No artist found")
     exit(1)
@@ -50,10 +47,10 @@ albums = []
 album_url = 'https://api.spotify.com/v1/artists/' + \
     artist_id + '/albums?country=US&limit=50&include_groups=album,single,compilation'
 while album_url:
-    response = requests.get(album_url, headers=auth_header).json()
+    response = spotutil.fetch_spotify_url_with_retry(album_url, auth_header)
     for item in response['items']:
         albums.append(item['id'])
-        verbose_print('#', end='')
+        verbose_print('#', end='', flush=True)
     album_url = response['next']
 
 verbose_print(" - %s" % len(albums))
@@ -68,8 +65,8 @@ for album in albums:
     tracks_for_album_url = 'https://api.spotify.com/v1/albums/' + \
         album + '/tracks?country=US&limit=50'
     while tracks_for_album_url:
-        response = requests.get(tracks_for_album_url,
-                                headers=auth_header).json()
+        response = spotutil.fetch_spotify_url_with_retry(
+            tracks_for_album_url, auth_header)
         for item in response['items']:
             track_ids.append(item['id'])
             verbose_print(".", end='', flush=True)
@@ -90,7 +87,8 @@ def fetch_track_batch(ids):
     query = ','
     tracks_data_url = 'https://api.spotify.com/v1/tracks?country=US&ids=' + \
         query.join(ids)
-    response = requests.get(tracks_data_url, headers=auth_header).json()
+    response = spotutil.fetch_spotify_url_with_retry(
+        tracks_data_url, auth_header)
     for item in response['tracks']:
         tracks.append(item)
 
