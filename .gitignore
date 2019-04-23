@@ -3,6 +3,7 @@
 *.gz
 LIBRARY_CLIENT.env
 .vscode/launch.json
+.vscode/tags
 
 # Python artifacts
 __pycache__/

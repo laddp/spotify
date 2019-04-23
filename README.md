@@ -111,6 +111,8 @@ The online apps require a "refresh token" to give permission to query your data.
 
 # `most_popular_for.py`: Show most popular songs for an artist
 
+(Online - app tokens only)
+
 Spotify web UI only shows the 5 most popular now, and [their API](https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/) only returns 10 (and isn't configurable...)
 
 Usage:
@@ -312,4 +314,225 @@ last month: 8
 
 First add: The Enemy Inside - Live From The Boston Opera House by Dream Theater at 2014-10-11T16:39:11
 Last add: Jonas & Ezekial by Indigo Girls at 2019-04-16T19:35:05
+```
+
+# `library_online_stats.py`: Compute some online statistics about your library
+
+(Online - app tokens only)
+
+Compute some more nerdy stats on your library:
+
+- Genres by artist
+- Genres weighted by track count
+- Most / least popular artists
+- Most / least followed artists
+
+Usage:
+```
+library_online_stats.py [-h] [-v] library_file
+
+positional arguments:
+  library_file   The JSON library file to analyze
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -v, --verbose  Print progress
+  ```
+
+Sample output:
+```
+./library_online_stats.py 2019-04-23-library.json -v
+Collected 1322 artists
+50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...50...22...
+Top genres:
+rock: 277
+pop rock: 157
+mellow gold: 148
+album rock: 148
+soft rock: 146
+post-grunge: 145
+new wave pop: 139
+classic rock: 132
+alternative metal: 109
+hard rock: 106
+dance rock: 105
+alternative rock: 94
+nu metal: 89
+modern rock: 88
+new wave: 86
+folk rock: 84
+art rock: 82
+new romantic: 81
+permanent wave: 71
+adult standards: 65
+dance pop: 65
+christmas: 63
+soul: 61
+blues-rock: 57
+disco: 56
+funk: 56
+pop: 56
+rap rock: 54
+folk-pop: 54
+southern rock: 51
+motown: 49
+roots rock: 48
+psychedelic rock: 46
+quiet storm: 44
+folk: 44
+synthpop: 43
+indie rock: 43
+metal: 41
+neo mellow: 41
+classic soul: 39
+pop punk: 38
+lilith: 37
+glam metal: 35
+indie pop: 35
+brill building pop: 34
+lounge: 34
+heartland rock: 34
+grunge: 34
+europop: 34
+garage rock: 33
+
+Top genres (weighted by tack count):
+rock: 2415
+album rock: 1334
+classic rock: 1237
+post-grunge: 961
+soft rock: 957
+mellow gold: 955
+pop rock: 928
+hard rock: 895
+alternative metal: 731
+permanent wave: 660
+art rock: 651
+alternative rock: 619
+metal: 589
+folk rock: 578
+new wave pop: 555
+nu metal: 535
+progressive rock: 510
+psychedelic rock: 414
+modern rock: 411
+dance rock: 406
+progressive metal: 354
+new wave: 341
+blues-rock: 335
+christmas: 328
+adult standards: 308
+southern rock: 305
+neo classical metal: 304
+new romantic: 303
+symphonic rock: 272
+roots rock: 269
+rap rock: 269
+heartland rock: 266
+pop punk: 253
+dance pop: 248
+soul: 231
+folk-pop: 231
+glam metal: 200
+folk: 196
+funk: 190
+motown: 189
+rap metal: 186
+lilith: 174
+disco: 171
+neo mellow: 170
+classical performance: 167
+grunge: 163
+funk metal: 154
+pop: 150
+lounge: 145
+vocal jazz: 145
+
+Most popular artists in your library:
+94: Queen
+93: Eminem
+92: Ed Sheeran
+91: Lil Wayne
+91: Imagine Dragons
+91: Bruno Mars
+90: Rihanna
+89: Ty Dolla $ign
+89: Beyoncé
+89: The Chainsmokers
+89: Taylor Swift
+89: Maroon 5
+88: Coldplay
+88: Panic! At The Disco
+88: Twenty One Pilots
+88: The Beatles
+87: Wiz Khalifa
+87: Logic
+87: John Mayer
+86: Red Hot Chili Peppers
+
+Least popular artists in your library:
+7: Zero Mostel & Ronald Holgate
+7: Peter Thom
+6: Zero Mostel & Brian Davies
+6: Zero Mostel, Brian Davies & Preshy Marker
+6: Preshy Marker
+6: Kelly Markgraf
+5: Cowboy '86
+5: David Burns & Brian Davies
+5: Ronald Holgate & Zero Mostel
+4: Zero Mostel & Jack Gilford
+4: Joseph C. Garland
+4: Julia Bullock
+4: Sweet Colleens
+3: Army Field Band
+2: The Guild of Ancient Fifes
+1: Ben Markley Big Band
+1: Household Division Corps Of Drums & Fifes
+1: Matt Wessel
+0: Life Guards Band
+0: Blane, R.
+
+Most followed artists in your library:
+42,928,463: Ed Sheeran
+31,181,645: Rihanna
+26,048,365: Eminem
+20,684,395: Bruno Mars
+19,245,993: Taylor Swift
+19,111,406: Coldplay
+18,270,571: Beyoncé
+18,082,142: Imagine Dragons
+17,547,891: Maroon 5
+15,179,889: Adele
+15,115,390: Queen
+13,410,941: Demi Lovato
+12,559,174: Twenty One Pilots
+12,124,348: Linkin Park
+11,812,462: The Chainsmokers
+11,699,548: Guns N' Roses
+11,658,240: The Beatles
+10,837,087: AC/DC
+10,224,748: Red Hot Chili Peppers
+10,196,951: Metallica
+
+Least followed artists in your library:
+6: David Burns & Brian Davies
+6: Joanne Miya
+5: Lorin Levee
+5: The Tommy Rome Orchestra
+5: Cassie Simone
+4: Joseph C. Garland
+3: Life Guards Band
+3: Louise Marie Cornillez
+3: Peter Thom
+2: Household Division Corps Of Drums & Fifes
+2: Justin Keyes
+1: Eliot Feld
+1: Kevin Vortmann
+1: Kelly Markgraf
+0: John Gower
+0: Blane, R.
+0: Zachary Ford
+0: Chris Meissner
+0: Louis Pardo
+0: David Michael Laffey
 ```
