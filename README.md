@@ -23,7 +23,7 @@ message, so all that effort was lost. While I don't think Spotify is going anywh
 that still bugged me, so I resolved to save my list of liked songs somewhere safe.
 This is the script I wrote to do that.
 
-Stores the contents of your Spotify library will be saved as JSON file `yyyy-mm-dd.json`
+Stores the contents of your Spotify library as a JSON file `yyyy-mm-dd-playlists.json`
 
 Usage:
 
@@ -61,6 +61,41 @@ Add this to your crontab to collect your library weekly:
 
 ```
 @weekly SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx /home/pladd/bin/get_library xxxxxxxxx /home/pladd/spotify/
+```
+
+# `get_playlists.py`: Save your Spotify playlist contents off as a JSON file
+
+Stores the contents of your Spotify playlists as JSON file `yyyy-mm-dd-playlists.json`
+
+Usage:
+
+```
+get_playlists.py [-h] [-q] refresh_token [output_dir]
+
+positional arguments:
+  refresh_token  Your personal Spotify refresh token
+  output_dir     Output directory
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -q, --quiet    No output
+  ```
+
+Sample output:
+```
+./get_playlists.py $SPOTIFY_TOKEN
+Retrieved 9 playlists
+Sludge (Spotify)...57
+Discover Weekly (Spotify)...30
+My Shazam Tracks (Patrick Ladd)...100...200...300...400...500...592
+Matrix Soundtrack (Tim Ljunggren)...33
+Meditations (Patrick Ladd)...6
+Star Wars I-VIII Complete (NewJT)...100...168
+Liked from Radio (Patrick Ladd)...16
+Windows Media Player (Patrick Ladd)...0
+iTunes (Patrick Ladd)...0
+
+Retrieved 9 playlists with 902 tracks, writing to ./2019-04-22-playlists.json
 ```
 
 # `get_token.py`: Service routine to get a reusable refresh token

@@ -1,7 +1,8 @@
 # My artifacts
 *.json
 *.gz
-LIBRARY_CLIENT.sh
+LIBRARY_CLIENT.env
+.vscode/launch.json
 
 # Python artifacts
 __pycache__/

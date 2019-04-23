@@ -16,7 +16,7 @@ parser.add_argument("-q", "--quiet",
 args = parser.parse_args()
 
 # open file now - fail fast :)
-filename = args.output_dir + '/' + str(datetime.date.today()) + '.json'
+filename = args.output_dir + '/' + str(datetime.date.today()) + '-library.json'
 outfile = open(filename, 'w')
 
 auth_header = spotutil.get_auth_header_from_refresh_token(args.refresh_token)
