@@ -23,7 +23,7 @@ message, so all that effort was lost. While I don't think Spotify is going anywh
 that still bugged me, so I resolved to save my list of liked songs somewhere safe.
 This is the script I wrote to do that.
 
-Stores the contents of your Spotify library as a JSON file `yyyy-mm-dd-playlists.json`
+Stores the contents of your Spotify library as a JSON file `yyyy-mm-dd-library.json`
 
 Usage:
 
