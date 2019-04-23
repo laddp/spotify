@@ -2,7 +2,6 @@
 import json
 import datetime
 import sys
-import requests
 import argparse
 import spotutil
 
@@ -25,7 +24,8 @@ auth_header = spotutil.get_auth_header_from_refresh_token(args.refresh_token)
 playlists_url = 'https://api.spotify.com/v1/me/playlists'
 basic_playlists = []
 while playlists_url:
-    response = requests.get(playlists_url, headers=auth_header).json()
+    response = spotutil.fetch_spotify_url_with_retry(
+        playlists_url, auth_header)
     for item in response['items']:
         basic_playlists.append(item)
     playlists_url = response['next']
@@ -45,8 +45,9 @@ for playlist in basic_playlists:
     # Doesn't include:
     #  - description
     #  - followers
-    playlist_url = "https://api.spotify.com/v1/playlists/" + playlist['id']  + "?market=US"
-    response = requests.get(playlist_url, headers=auth_header).json()
+    playlist_url = "https://api.spotify.com/v1/playlists/" + \
+        playlist['id'] + "?market=US"
+    response = spotutil.fetch_spotify_url_with_retry(playlist_url, auth_header)
     playlist = response
 
     # playlist fetch only returns basic track objects
@@ -54,9 +55,10 @@ for playlist in basic_playlists:
     pl_tracks_url = playlist['tracks']['href']
     playlist['tracks']['items'] = []
     playlist['tracks']['limit'] = 0
-    playlist['tracks']['next' ] = None
+    playlist['tracks']['next'] = None
     while pl_tracks_url:
-        response = requests.get(pl_tracks_url, headers=auth_header).json()
+        response = spotutil.fetch_spotify_url_with_retry(
+            pl_tracks_url, auth_header)
         for item in response['items']:
             playlist['tracks']['items'].append(item)
         count += len(response['items'])

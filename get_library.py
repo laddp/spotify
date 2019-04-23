@@ -2,7 +2,6 @@
 import json
 import datetime
 import sys
-import requests
 import argparse
 import spotutil
 
@@ -25,7 +24,7 @@ url = 'https://api.spotify.com/v1/me/tracks?market=US&limit=50'
 results = []
 count = 0
 while url:
-    response = requests.get(url, headers=auth_header).json()
+    response = spotutil.fetch_spotify_url_with_retry(url, auth_header)
     for item in response['items']:
         results.append(item)
         count += 1
@@ -34,6 +33,7 @@ while url:
         print("...%s" % count, end='', flush=True)
 
 if not args.quiet:
-    print("\nRetrieved " + str(len(results)) + " tracks, writing to " + filename)
+    print("\nRetrieved " + str(len(results)) +
+          " tracks, writing to " + filename)
 filename = str(datetime.date.today()) + '.json'
 json.dump(results, outfile)

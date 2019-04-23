@@ -3,7 +3,6 @@ import json
 import os
 import sys
 import argparse
-import requests
 import spotutil
 
 parser = argparse.ArgumentParser()
@@ -40,7 +39,7 @@ def fetch_artist_batch(ids):
     artists_url = 'https://api.spotify.com/v1/artists?ids='
     query = ','
     artists_url = 'https://api.spotify.com/v1/artists?ids=' + query.join(ids)
-    response = requests.get(artists_url, headers=auth_header).json()
+    response = spotutil.fetch_spotify_url_with_retry(artists_url, auth_header)
     for item in response['artists']:
         artists[item['id']]['detail'] = item
 
@@ -70,13 +69,13 @@ for artist in artists.values():
 
 genres = sorted(genres.items(), key=lambda tup: tup[1], reverse=True)
 print("\nTop genres:")
-for i in range(min(len(genres),50)):
+for i in range(min(len(genres), 50)):
     print(genres[i][0] + ': ' + str(genres[i][1]))
 
 weighted_genres = sorted(weighted_genres.items(),
                          key=lambda tup: tup[1], reverse=True)
 print("\nTop genres (weighted by tack count):")
-for i in range(min(len(weighted_genres),50)):
+for i in range(min(len(weighted_genres), 50)):
     print(weighted_genres[i][0] + ': ' + str(weighted_genres[i][1]))
 
 
@@ -84,7 +83,7 @@ artists_by_popularity = sorted(
     artists.values(), reverse=True, key=lambda artist: artist['detail']['popularity'])
 
 print("\nMost popular artists in your library:")
-for i in range(min(len(artists_by_popularity),20)):
+for i in range(min(len(artists_by_popularity), 20)):
     print(str(artists_by_popularity[i]['detail']['popularity']) +
           ': ' + artists_by_popularity[i]['detail']['name'] + ' - ' +
           artists_by_popularity[i]['detail']['external_urls']['spotify'])
@@ -98,7 +97,7 @@ for i in range(len(artists_by_popularity)-20, len(artists_by_popularity)):
 artists_by_followers = sorted(
     artists.values(), reverse=True, key=lambda artist: artist['detail']['followers']['total'])
 print("\nMost followed artists in your library:")
-for i in range(min(len(artists_by_followers),20)):
+for i in range(min(len(artists_by_followers), 20)):
     print("{:,}".format(artists_by_followers[i]['detail']['followers']['total']) +
           ': ' + artists_by_followers[i]['detail']['name'] + ' - ' +
           artists_by_followers[i]['detail']['external_urls']['spotify'])

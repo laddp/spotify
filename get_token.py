@@ -49,8 +49,8 @@ def get_tokens_from_authcode(code):
     }
     response = requests.post(OAUTH_TOKEN_URL, verify=True,
                              headers=token_request_header, data=token_request_body)
-    if response.status_code != 200:
-        raise Exception(response.reason)
+    if not response.ok():
+        response.raise_for_status()
     return response.json()
 
 
