@@ -26,18 +26,27 @@ auth_header = spotutil.get_auth_header_for_client()
 # Find the best match artist
 #############################
 artist_url = 'https://api.spotify.com/v1/search?q=' + \
-    args.artist + '&type=artist&limit=2'
-artist = spotutil.fetch_spotify_url_with_retry(artist_url, auth_header)
+    args.artist + '&type=artist&limit=5'
+artists = spotutil.fetch_spotify_url_with_retry(artist_url, auth_header)
 
-if artist['artists']['total'] == 0:
+if artists['artists']['total'] == 0:
     print("No artist found")
     exit(1)
-if artist['artists']['items'][0]['name'] != args.artist:
+artist = None
+for candidate in artists['artists']['items']:
+    if candidate['name'] == args.artist:
+        artist = candidate
+        break
+if not artist:
     print("Warning! Artist name doesn't match exactly")
-print('Most popular tracks for "' + artist['artists']['items'][0]['name'] +
-      '" (popularity ' + str(artist['artists']['items'][0]['popularity']) + ')', end='', flush=True)
+    artist = artist['artists']['items'][0]
+    print("Using " + artist['name'])
+    print("Other choices were: ")
+    for candidate in artists:
+        print(candidate['name'])
 
-artist_id = artist['artists']['items'][0]['id']
+print('Most popular tracks for "' +
+      artist['name'] + '" (popularity ' + str(artist['popularity']) + ')', end='', flush=True)
 
 ############################
 # Get all albums for artist
@@ -45,7 +54,7 @@ artist_id = artist['artists']['items'][0]['id']
 verbose_print("\n\nFetching albums")
 albums = []
 album_url = 'https://api.spotify.com/v1/artists/' + \
-    artist_id + '/albums?country=US&limit=50&include_groups=album,single,compilation'
+    artist['id'] + '/albums?country=US&limit=50&include_groups=album,single,compilation'
 while album_url:
     response = spotutil.fetch_spotify_url_with_retry(album_url, auth_header)
     for item in response['items']:
